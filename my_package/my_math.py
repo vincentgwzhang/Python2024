@@ -12,7 +12,6 @@ def total2(a):
         result += val ** 2
     return result
 
-
 name = 'vincent'
 
 def printName():
