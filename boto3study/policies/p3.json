@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "comment": "只有某些 ARN 才能访问 S3",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::123456789012:user/JohnDoe",
+                    "arn:aws:iam::123456789012:role/MyRole"
+                ]
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::your-bucket-name",
+                "arn:aws:s3:::your-bucket-name/*"
+            ]
+        }
+    ]
+}

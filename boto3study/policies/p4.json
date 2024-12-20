@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "comment": "只有我自己账户的 Lambda 能访问 S3",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "lambda.amazonaws.com"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::your-bucket-name",
+                "arn:aws:s3:::your-bucket-name/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "123456789012"
+                }
+            }
+        }
+    ]
+}

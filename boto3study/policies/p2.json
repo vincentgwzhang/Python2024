@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "comment": "只有某些 IP 地址才能访问 S3",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::vincent-sample",
+                "arn:aws:s3:::vincent-sample/*"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "203.0.113.0/24"
+                }
+            }
+        }
+    ]
+}
